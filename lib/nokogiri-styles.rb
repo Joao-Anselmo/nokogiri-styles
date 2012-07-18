@@ -1,4 +1,4 @@
-require 'nokogiri-property_string/version'
+require 'nokogiri-styles/version'
 require 'nokogiri-styles/node_styles'
 
 module Nokogiri::XML

@@ -28,6 +28,13 @@ class TestNodeStyles < Test::Unit::TestCase
     assert_equal(node.styles.class, NokogiriStyles::Propset)
   end
 
+  def test_nil_style
+    node = MockNode.new
+    assert_nothing_raised do
+      assert_equal('', node.styles.to_s)
+    end
+  end
+
   def test_set_styles
     node = MockNode.new
     node.styles = MockStyles.new('width: 2px; height: 4px')

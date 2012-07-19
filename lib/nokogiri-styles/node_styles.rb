@@ -3,7 +3,7 @@ require 'nokogiri-styles/propset'
 module NokogiriStyles
   module NodeStyles
     def styles
-      return NokogiriStyles::Propset.new(self['style'])
+      return NokogiriStyles::Propset.new(self['style'] || '')
     end
 
     def styles=(value)

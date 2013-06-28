@@ -48,4 +48,21 @@ class TestPropset < Test::Unit::TestCase
     propset = Propset.new('width: 2px; height 4px')
     assert_equal('2px', propset['width'])
   end
+
+  def test_get_properties
+    propset = Propset.new('width: 2px; height: 4px; color: #fff')
+    assert_equal('2px', propset['width'])
+    assert_equal('4px', propset['height'])
+    assert_equal('#fff', propset['color'])
+    assert_equal(['width', 'height', 'color'], propset.get_properties)
+  end
+
+  def test_get_properties_after_delete
+    propset = Propset.new('width: 2px; height: 4px; color: #fff')
+    propset.delete('height')
+    propset['width'] = nil
+    assert_equal(nil, propset['height'])
+    assert_equal(nil, propset['width'])
+    assert_equal(['color'], propset.get_properties)
+  end
 end

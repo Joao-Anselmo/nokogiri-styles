@@ -65,4 +65,13 @@ class TestPropset < Test::Unit::TestCase
     assert_equal(nil, propset['width'])
     assert_equal(['color'], propset.get_properties)
   end
+
+  def test_whitelist_properties
+    propset = Propset.new('width: 2px; height: 4px; color: #fff')
+    propset.whitelist(['color'])
+    assert_equal(nil, propset['height'])
+    assert_equal(nil, propset['width'])
+    assert_equal(['color'], propset.get_properties)
+  end
+
 end

@@ -32,6 +32,10 @@ module NokogiriStyles
       @properties.reject! { |p| p[:key] == key }
     end
 
+    def get_properties
+      @mapping.keys
+    end
+
     private
       def parse_property(property_string)
         parts = property_string.split(':', 2)

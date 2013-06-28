@@ -36,6 +36,12 @@ module NokogiriStyles
       @mapping.keys
     end
 
+    def whitelist(list)
+      self.get_properties.each do |p|
+        self.delete(p) unless list.include?(p)
+      end
+    end
+
     private
       def parse_property(property_string)
         parts = property_string.split(':', 2)

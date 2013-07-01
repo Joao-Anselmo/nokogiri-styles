@@ -48,7 +48,7 @@ module NokogiriStyles
         return nil if parts.nil?
         return nil if parts.length != 2
         return nil if parts.any? { |s| s.nil? }
-        {:key => parts[0].strip, :value => parts[1].strip}
+        {:key => parts[0].strip.downcase, :value => parts[1].strip.downcase}
       end
 
       def parse_properties(style_string)
